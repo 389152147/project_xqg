@@ -3,33 +3,92 @@
     <!-- 顶部搜索框 -->
     <header>
       <!-- 跳转到搜索页面 -->
-      <a href="javascript:;" class="search">点击跳转搜索页面</a>
-      <a href="javascript:;" class="download"></a>
+      <router-link to="javascript:;" class="search">点击跳转搜索页面</router-link>
+      <router-link to="javascript:;" class="download"></router-link>
     </header>
     <div class="header-bg"></div>
     <!-- 顶部导航栏 -->
     <div class="nav">
-      <a href="javascript:;">精选</a>
+      <router-link to="javascript:;">精选</router-link>
       <div class="nav-item">
-        <a href="javascript:;">女装</a>
-        <a href="javascript:;">美食</a>
-        <a href="javascript:;">美妆</a>
-        <a href="javascript:;">居家日常</a>
-        <a href="javascript:;">男装</a>
-        <a href="javascript:;">鞋品</a>
-        <a href="javascript:;">数码家电</a>
-        <a href="javascript:;">母婴</a>
+        <router-link to="javascript:;">女装</router-link>
+        <router-link to="javascript:;">美食</router-link>
+        <router-link to="javascript:;">美妆</router-link>
+        <router-link to="javascript:;">居家日常</router-link>
+        <router-link to="javascript:;">男装</router-link>
+        <router-link to="javascript:;">鞋品</router-link>
+        <router-link to="javascript:;">数码家电</router-link>
+        <router-link to="javascript:;">母婴</router-link>
       </div>
-      <a href="javascript:;"></a>
+      <router-link to="javascript:;">
+        <img src="../../img/Home/nav/arrow_bottom_down_downward_navigation_512px_1225446_easyicon.net.png" alt="">
+      </router-link>
     </div>
     <div class="nav-bg"></div>
     <!-- 轮播 -->
-    <div>
-      <mt-swipe :auto="2500">
-        <mt-swipe-item v-for="item in list" :key="item.id">
-          <img :src="item.img_url">
-        </mt-swipe-item>
-      </mt-swipe>
+    <mt-swipe :auto="2500">
+      <mt-swipe-item v-for="item in list" :key="item.id">
+        <img :src="item.img_url">
+      </mt-swipe-item>
+    </mt-swipe>
+    <!-- 图标导航 -->
+    <div class='icon-nav'>
+      <router-link to='javascript:;' v-for="item in iconNav" :key="item.id">
+        <img :src="'http://127.0.0.1:3000/img/home/'+item.img_src" alt="">
+        <p>{{item.title}}</p>
+      </router-link>
+    </div>
+    <!-- 优惠头条 -->
+    <div class="sale">
+      <div class="sale-img1">
+        <img src="http://127.0.0.1:3000/img/home/sale/sale.gif" alt="">
+      </div>
+      <router-link class="sale-item" to='javascript:;'>
+        <div class="sale-text">
+          <p class="sale-text-name">
+            <span>咚咚抢</span>
+            <span>下饭神器！香菇牛肉酱</span>
+          </p>
+          <p class="sale-text-tab">
+            <span>前2小时第2件0元</span>
+            <span>热销1.7W </span>
+          </p>
+        </div>
+        <div class="sale-img2">
+          <img  src="http://127.0.0.1:3000/img/home/sale/sale1.jpg" alt="">
+        </div>
+      </router-link>
+    </div>
+    <!-- 一楼 -->
+    <div class="floor1">
+      <div class='floor1-left'>
+        <div class="floor1-left-text">
+          <p>9.9包邮</p>
+          <p>近一小时疯抢</p>
+        </div>
+        <img src="http://127.0.0.1:3000/img/home/floor1/floor1-img1.jpg" alt="">
+      </div>
+      <div class='floor1-right'>
+        <!-- 上 -->
+        <div>
+          <div class="floor1-right-text1">
+            <p>咚咚抢</p>
+            <p class="floor1-time">
+              <span>10点场</span>
+              <span>00:00:00</span>
+            </p>
+          </div>
+          <img src="http://127.0.0.1:3000/img/home/floor1/floor1-right-img1.png" alt="">
+        </div>
+        <!-- 下 -->
+        <div>
+          <div class="floor1-right-text2">
+            <p>开学装备</p>
+            <p>儿童书包低至19.9</p>
+          </div>
+          <img src="http://127.0.0.1:3000/img/home/floor1/floor1-right-img2.jpg" alt="">
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -37,8 +96,13 @@
 <script>
   export default {
     data(){return{
-      list:[
-        
+      list:[],
+      iconNav:[
+        {id:1,img_src:'home-nav1.png',title:'疯抢排行'},
+        {id:2,img_src:'home-nav2.png',title:'咚咚枪'},
+        {id:3,img_src:'home-nav3.png',title:'每日半价'},
+        {id:4,img_src:'home-nav4.png',title:'折上折'},
+        {id:5,img_src:'home-nav5.png',title:'聚品团'}
       ]
     }},
     created(){
@@ -60,6 +124,166 @@
 </script>
 
 <style>
+  /*floor1 */
+  .floor1-time span:last-child{
+    color: #FC4D52;
+    font-size:12px;
+    padding:1px 8px 1px 17px;
+    border-radius: 10px;
+    border:1px #FC4D52 solid;
+    border-left:0;
+    margin-left:-19px;
+  }
+  .floor1-time span:first-child{
+    background: #FC4D52;
+    color: #fff;
+    font-size:12px;
+    padding:2px 8px;
+    border-radius: 10px;
+  }
+  .floor1-right-text2 p{
+    margin-bottom:4px;
+    text-align: left;
+    padding-left:10px;
+    color:transparent;
+    -webkit-background-clip:text;
+    background-image: -webkit-linear-gradient(left, rgb(212, 0, 255), rgb(255, 50, 10));
+  }
+  .floor1-right-text2 p:first-child{
+    color: #FF566F;
+    font-size:15px;
+    margin-top:5px;
+  }
+  .floor1-right-text2{
+    position:absolute;
+  }
+  .floor1-right-text1{
+    position:absolute;
+  }
+  .floor1-right-text1 p:first-child{
+    color: #FF566F;
+    font-size:15px;
+    margin-top:5px;
+  }
+  .floor1-right-text1 p{
+    margin-bottom:4px;
+    text-align: left;
+    padding-left:10px;
+  }
+  .floor1-right img{
+    height:100px;
+  }
+  .floor1-right>div{
+    height:100px;
+    width:100%;
+    /* border:1px solid red; */
+    overflow: hidden;
+    position:relative;
+  }
+  .floor1-right>div:first-child{
+    border-bottom:3px #fff solid;
+  }
+  .floor1-left-text{
+    width: 100%;
+    position:absolute;
+    top:0;
+    left:0;
+  }
+  .floor1-left img{
+    height:200px;
+  }
+  .floor1-left p{
+    text-align: left;
+    padding-left:10px;
+  }
+  .floor1-left p:first-child{
+    font-size: 15px;
+    font-weight: 400;
+    color: #FF566F;
+    margin-bottom: 4px;
+    margin-top:5px;
+  }
+  .floor1-left{
+    width:40%;
+    /* border:1px solid red; */
+    position:relative;
+    overflow: hidden;
+  }
+  .floor1-right{
+    width:60%;
+  }
+  .floor1{
+    display:flex;
+    height:200px;
+  }
+  /* 优惠头条 */
+  .sale-text-tab span{
+    border-radius: 2px;
+    border: 1px solid rgba(252,77,82,.9);
+    display: inline-block;
+    color: #FC4D52;
+    font-size: 11px;
+    padding: 0 4px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+  }
+  .sale-text-name,.sale-text-tab{
+    margin-bottom:2px;
+    text-align: left;
+    padding-left:5px;
+  }
+  .sale-text-name span:first-child{
+    color: #fff;
+    background-image: -webkit-linear-gradient(left, rgb(254, 189, 23), rgb(255, 130, 67));
+  }
+  .sale-img2{
+    width:30%;
+  }
+  .sale-img2 img{
+    width:60px;
+    height:60px;
+    margin-top:3px;
+  }
+  .sale-text{
+    width:70%;
+    font-size:12px;
+    text-overflow: ellipsis;
+    margin-top:6px;
+  }
+  .sale-item{
+    width:80%;
+    display:flex;
+    justify-content: space-around;
+  }
+  .sale{
+    display:flex;
+    justify-content: flex-start;
+    width:100%;
+  }
+  .sale-img1{
+    width:20%;
+  }
+  .sale-img1>img{
+    width:60px;
+    height:60px;
+    margin:auto;
+  } 
+  /* 图标导航 */
+  .icon-nav{
+    margin-top:5px;
+    display: flex;
+    width:100%;
+    justify-content: space-around;
+  }
+  .icon-nav img{
+    width:60px;
+    height:60px;
+    margin-bottom:-5px;
+  }
+  .icon-nav p{
+    color:#000;
+  }
+  /*  */
   header{
     width: 100%;
     height: 45px;
@@ -119,6 +343,8 @@
     height:40px;
   }
   .nav>a:first-child{
+    font-size:18px;
+    color:#000;
     position: absolute;
     left: 0;
     top: 0;
@@ -139,7 +365,12 @@
     text-align: center;
     line-height: 40px;
     z-index: 54;
-    background:url('../../img/Home/nav/arrow_bottom_down_downward_navigation_512px_1225446_easyicon.net.png')
+    color:#000;
+  }
+  .nav>a:last-child img{
+    width:30px;
+    height:30px;
+
   }
   .nav-bg{
     height:40px;
@@ -161,5 +392,6 @@
     line-height: 40px;
     width:auto;
     border-bottom: solid 2px #fff;
+    color:#000;
   }
 </style>

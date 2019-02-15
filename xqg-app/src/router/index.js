@@ -15,13 +15,14 @@ export default new Router({
     {
       path: '/',
       name: 'HelloWorld',
-      component: HelloWorld
+      component: Home
     },
     {path:'/test01',component:testContainer},
     {path:'/Home',component:Home},
     {path:'/Nine',component:Nine},
     {path:'/Classify',component:Classify},
     {path:'/Collection',component:Collection},
-    {path:'/Mine',component:Mine}
+    {path:'/Mine',component:Mine},
+    {path:'*',component:Home},
   ]
 })

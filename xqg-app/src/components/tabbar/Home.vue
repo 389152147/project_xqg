@@ -90,6 +90,41 @@
         </div>
       </div>
     </div>
+    <!-- 二楼 -->
+    <div class="floor2">
+      <div class="floor2-header">
+        <div class="floor2-header-left">
+          <span></span>
+          <span>大家都在领</span>
+        </div>
+        <div class="floor2-header-right">
+          <span>132131</span>
+          <span>次实时领劵</span>
+        </div>
+      </div>
+      <div class="floor2-body">
+        <div class="floor2-body-product" v-for="item in floor2Product" :key="item">
+          <router-link to="javascript:;" class="product-img">
+            <img src="http://127.0.0.1:3000/img/home/floor2/floor2-body-img1.jpg" alt="">
+            <p>
+              6.6万
+              <span>人已领</span>
+              <span>|</span>
+              40元券
+            </p>
+          </router-link>
+          <p class="product-name">儿童切水果玩具过家家厨房组合</p>
+          <p class="product-price">
+            ￥
+            <span>9.9</span>
+            <del>￥49.9</del>
+          </p>
+          <p class="product-progress">
+            <i style="width:60%"></i>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -103,7 +138,8 @@
         {id:3,img_src:'home-nav3.png',title:'每日半价'},
         {id:4,img_src:'home-nav4.png',title:'折上折'},
         {id:5,img_src:'home-nav5.png',title:'聚品团'}
-      ]
+      ],
+      floor2Product:[1,2,3,4,5,6,7]
     }},
     created(){
       this.getImages();
@@ -124,6 +160,116 @@
 </script>
 
 <style>
+  /*floor2 */
+  .product-progress i{
+    display: block;
+    height: 3px;
+    overflow: hidden;
+    background-color: #FF66B7;
+    width: 5px;
+    transition: all 1s ease 0s;
+    transform-origin: center;
+  }
+    
+  .product-progress{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    height: 3px;
+    background-color: #FFD6EC;
+    width: 100%;
+  }
+  .product-price del{
+    color:#bbb;
+    font-size:14px;
+  }
+  .product-price span{
+    font-size:17px;
+    margin-right:5px;
+  }
+  .product-price{
+    font-size:11px;
+    text-align: left;
+    color:#FC4D52; 
+  }
+  .product-name{
+    line-height: 13px;
+    font-size: 14px;
+    color:#000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .product-img p{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: linear-gradient(to left,rgba(255,113,233,.91) 0,rgba(254,92,158,.91) 100%);
+    color: #fff;
+    padding: 1px 4px;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 8px;
+  }
+  .product-img img{
+    width:100%;
+  }
+  .product-img{
+    display:block;  
+    padding: 10px 6px 0;
+    position:relative;
+  }
+  .floor2-body-product{
+    width: 40%;
+    padding: 10px 10px 0;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 3px 0 10px 0 rgba(0,0,0,.1);
+    position:relative;
+  }
+  .floor2-body{
+    display:flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+  .floor2-header-left span:first-child{
+    background: linear-gradient(to top,#ff5d06 0,#fc3f78 100%);
+    margin-right: 8px;
+    width: 3px;
+    height: 12px;
+    display:inline-block;
+  }
+  .floor2-header{
+    display:flex;
+    font-size:15px;
+    padding:8px 0;
+    border-bottom:1px solid #ddd;
+  }
+  .floor2-header-left{
+    width:40%;
+    text-align: left;
+    padding-left:10px;
+  }
+  .floor2-header-right{
+    width:60%;
+    text-align: right;
+    padding-right:10px;
+  }
+  .floor2-header-right span:first-child{
+    color: #FC4D52;
+    font-size:15px;
+  }
+  .floor2-header-right span:last-child{
+    color: #aaa;
+    font-size:13px;
+  }
   /*floor1 */
   .floor1-time span:last-child{
     color: #FC4D52;
@@ -293,6 +439,7 @@
     font-size: 14px;
     background: linear-gradient(to left,#FA4DBE 0,#FBAA58 100%);
     border-bottom-color: transparent;
+    z-index:99;
   }
   .header-bg{
     width: 100%;
@@ -339,8 +486,10 @@
     position: fixed;
     left: 0;
     width: 100%;
-    top: 46px;
+    top: 45px;
     height:40px;
+    background:#fff;
+    z-index:99;
   }
   .nav>a:first-child{
     font-size:18px;

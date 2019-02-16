@@ -34,6 +34,13 @@ export default {
 </script>
 
 <style>
+.clear-float:after{
+  display:block;
+  clear:both;
+  content:"";
+  visibility:hidden;
+  height:0
+}
 .bottomNav-bg{
   margin-top:10px;
   width:100%;

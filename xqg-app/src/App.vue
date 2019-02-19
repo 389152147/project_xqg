@@ -34,6 +34,10 @@ export default {
 </script>
 
 <style>
+.main{
+  max-width: 750px;
+  margin:auto;
+}
 .clear-float:after{
   display:block;
   clear:both;

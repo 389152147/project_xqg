@@ -25,103 +25,105 @@
       </router-link>
     </div>
     <div class="nav-bg"></div>
-    <!-- 轮播 -->
-    <mt-swipe :auto="2500">
-      <mt-swipe-item v-for="item in list" :key="item.id">
-        <img :src="item.img_url">
-      </mt-swipe-item>
-    </mt-swipe>
-    <!-- 图标导航 -->
-    <div class='icon-nav'>
-      <router-link to='javascript:;' v-for="item in iconNav" :key="item.id">
-        <img :src="'http://127.0.0.1:3000/img/home/'+item.img_src" alt="">
-        <p>{{item.title}}</p>
-      </router-link>
-    </div>
-    <!-- 优惠头条 -->
-    <div class="sale">
-      <div class="sale-img1">
-        <img src="http://127.0.0.1:3000/img/home/sale/sale.gif" alt="">
+    <div class="main">
+      <!-- 轮播 -->
+      <mt-swipe :auto="2500">
+        <mt-swipe-item v-for="item in list" :key="item.id">
+          <img :src="item.img_url">
+        </mt-swipe-item>
+      </mt-swipe>
+      <!-- 图标导航 -->
+      <div class='icon-nav'>
+        <router-link to='javascript:;' v-for="item in iconNav" :key="item.id">
+          <img :src="'http://127.0.0.1:3000/img/home/'+item.img_src" alt="">
+          <p>{{item.title}}</p>
+        </router-link>
       </div>
-      <router-link class="sale-item" to='javascript:;'>
-        <div class="sale-text">
-          <p class="sale-text-name">
-            <span>咚咚抢</span>
-            <span>下饭神器！香菇牛肉酱</span>
-          </p>
-          <p class="sale-text-tab">
-            <span>前2小时第2件0元</span>
-            <span>热销1.7W </span>
-          </p>
+      <!-- 优惠头条 -->
+      <div class="sale">
+        <div class="sale-img1">
+          <img src="http://127.0.0.1:3000/img/home/sale/sale.gif" alt="">
         </div>
-        <div class="sale-img2">
-          <img  src="http://127.0.0.1:3000/img/home/sale/sale1.jpg" alt="">
-        </div>
-      </router-link>
-    </div>
-    <!-- 一楼 -->
-    <div class="floor1">
-      <div class='floor1-left'>
-        <div class="floor1-left-text">
-          <p>9.9包邮</p>
-          <p>近一小时疯抢</p>
-        </div>
-        <img src="http://127.0.0.1:3000/img/home/floor1/floor1-img1.jpg" alt="">
-      </div>
-      <div class='floor1-right'>
-        <!-- 上 -->
-        <div>
-          <div class="floor1-right-text1">
-            <p>咚咚抢</p>
-            <p class="floor1-time">
-              <span>10点场</span>
-              <span>00:00:00</span>
+        <router-link class="sale-item" to='javascript:;'>
+          <div class="sale-text">
+            <p class="sale-text-name">
+              <span>咚咚抢</span>
+              <span>下饭神器！香菇牛肉酱</span>
+            </p>
+            <p class="sale-text-tab">
+              <span>前2小时第2件0元</span>
+              <span>热销1.7W </span>
             </p>
           </div>
-          <img src="http://127.0.0.1:3000/img/home/floor1/floor1-right-img1.png" alt="">
-        </div>
-        <!-- 下 -->
-        <div>
-          <div class="floor1-right-text2">
-            <p>开学装备</p>
-            <p>儿童书包低至19.9</p>
+          <div class="sale-img2">
+            <img  src="http://127.0.0.1:3000/img/home/sale/sale1.jpg" alt="">
           </div>
-          <img src="http://127.0.0.1:3000/img/home/floor1/floor1-right-img2.jpg" alt="">
+        </router-link>
+      </div>
+      <!-- 一楼 -->
+      <div class="floor1">
+        <div class='floor1-left'>
+          <div class="floor1-left-text">
+            <p>9.9包邮</p>
+            <p>近一小时疯抢</p>
+          </div>
+          <img src="http://127.0.0.1:3000/img/home/floor1/floor1-img1.jpg" alt="">
+        </div>
+        <div class='floor1-right'>
+          <!-- 上 -->
+          <div>
+            <div class="floor1-right-text1">
+              <p>咚咚抢</p>
+              <p class="floor1-time">
+                <span>10点场</span>
+                <span>00:00:00</span>
+              </p>
+            </div>
+            <img src="http://127.0.0.1:3000/img/home/floor1/floor1-right-img1.png" alt="">
+          </div>
+          <!-- 下 -->
+          <div>
+            <div class="floor1-right-text2">
+              <p>开学装备</p>
+              <p>儿童书包低至19.9</p>
+            </div>
+            <img src="http://127.0.0.1:3000/img/home/floor1/floor1-right-img2.jpg" alt="">
+          </div>
         </div>
       </div>
-    </div>
-    <!-- 二楼 -->
-    <div class="floor2">
-      <div class="floor2-header">
-        <div class="floor2-header-left">
-          <span></span>
-          <span>大家都在领</span>
+      <!-- 二楼 -->
+      <div class="floor2">
+        <div class="floor2-header">
+          <div class="floor2-header-left">
+            <span></span>
+            <span>大家都在领</span>
+          </div>
+          <div class="floor2-header-right">
+            <span>132131</span>
+            <span>次实时领劵</span>
+          </div>
         </div>
-        <div class="floor2-header-right">
-          <span>132131</span>
-          <span>次实时领劵</span>
-        </div>
-      </div>
-      <div class="floor2-body">
-        <div class="floor2-body-product" v-for="item in floor2Product" :key="item">
-          <router-link to="javascript:;" class="product-img">
-            <img src="http://127.0.0.1:3000/img/home/floor2/floor2-body-img1.jpg" alt="">
-            <p>
-              6.6万
-              <span>人已领</span>
-              <span>|</span>
-              40元券
+        <div class="floor2-body">
+          <div class="floor2-body-product" v-for="item in floor2Product" :key="item">
+            <router-link to="javascript:;" class="product-img">
+              <img src="http://127.0.0.1:3000/img/home/floor2/floor2-body-img1.jpg" alt="">
+              <p>
+                6.6万
+                <span>人已领</span>
+                <span>|</span>
+                40元券
+              </p>
+            </router-link>
+            <p class="product-name">儿童切水果玩具过家家厨房组合</p>
+            <p class="product-price">
+              ￥
+              <span>9.9</span>
+              <del>￥49.9</del>
             </p>
-          </router-link>
-          <p class="product-name">儿童切水果玩具过家家厨房组合</p>
-          <p class="product-price">
-            ￥
-            <span>9.9</span>
-            <del>￥49.9</del>
-          </p>
-          <p class="product-progress">
-            <i style="width:60%"></i>
-          </p>
+            <p class="product-progress">
+              <i style="width:60%"></i>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -474,6 +476,7 @@
     background-size:30px;
     background-position:7px 7px;
   }
+  
   /*轮播图设置父元素高度*/
   .Home .mint-swipe{
     height:157px;

@@ -327,6 +327,7 @@
     /* border:1px solid red; */
     overflow: hidden;
     position:relative;
+    text-align: right;
   }
   .floor1-right>div:first-child{
     border-bottom:3px #fff solid;
@@ -356,6 +357,8 @@
     /* border:1px solid red; */
     position:relative;
     overflow: hidden;
+    text-align: right;
+    padding-right: 3px;
   }
   .floor1-right{
     width:60%;
@@ -455,6 +458,7 @@
     background:#fff;
     padding-top: 8px;
     margin: 9px 45px 0 10px;
+    /* margin-bottom:9px; */
     text-align: center;
     font-size: 16px;
     color: #666;
@@ -545,5 +549,10 @@
     width:auto;
     border-bottom: solid 2px #fff;
     color:#000;
+  }
+  @media screen and (min-width:767px){
+    .Home .mint-swipe{
+      height:312px;
+    }
   }
 </style>

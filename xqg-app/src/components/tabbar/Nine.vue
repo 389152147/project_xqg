@@ -63,6 +63,29 @@
           <span>{{item.title}}</span>
         </router-link>
       </div>
+      <!-- 疯抢列表 -->
+      <div class="comlist" v-for="item in comlist" :key="item">
+        <h3>
+          <span>近一小时疯抢</span>
+        </h3>
+        <div class="comlist-detail">
+          <div class="comlist-item" v-for=" item in 'navList'" :key="item.id">
+            <router-link to="javascript:;" class="comlist-img">
+              <img src="http://127.0.0.1:3000/img/nine/nine-comlist/comlist1-img1.jpg" alt="">
+              <p>疯抢 9593 件</p>
+            </router-link>
+            <p class="comlist-name">【超划算】冰丝无痕蕾丝安全裤</p>
+            <p class="comlist-price">¥2.6 </p>
+          </div>
+        </div>
+      </div>
+      <!-- 精选推荐 -->
+      <div class="goodlist">
+        <h3>精选推荐</h3>
+        <div class="goodlist-detail">
+          <div class="goodlist-item"></div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -82,12 +105,121 @@
         {id:9,title:"箱包"},
         {id:10,title:"数码配件"},
         {id:11,title:"文娱车品"}
-      ]
+      ],
+      comlist:[1,2,3,4],
+      comlist1:[]
     }}  
   }
 </script>
 
 <style>
+  /* 精选推荐 */
+  .goodlist{
+    border-top:6px solid rgb(0,0,0,.1)
+  }
+  .goodlist h3{
+    color: #C043FC;
+    background-image: -webkit-gradient(linear,left 20,right 0,from(#873CFE),to(#FD295E));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size:17px;
+  }
+  /* 疯抢列表 */
+  .comlist-price{
+    color: #FF2B22;
+    font-size: 14px;
+    overflow: hidden;
+    margin: 0 0 5px;
+    width: 100px;
+    text-align: left;
+  }
+  .comlist-name{
+    font-size: 11px;
+    padding: 5px 0 0;
+    margin-bottom: 5px;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #666;
+  }
+  .comlist-img p{
+    border-radius: 0 0 2px 2px;
+    text-align: center;
+    text-indent: .2em;
+    background: #FFF3F3;
+    border: 1px solid #ffbdbf;
+    color: #fc4d52;
+    font-size: 10px;
+    overflow: hidden;
+    height: 14px;
+    line-height: 14px;
+    margin-top:-5px;
+    margin-bottom:0;
+  }
+  .comlist-img img{
+    width:100%;
+  }
+  .comlist-item{
+    margin-right:10px;
+    display:inline-block;
+    width:30%;
+  }
+  .comlist:before{
+    background-image: linear-gradient(right,rgba(255,255,255,.8),rgba(255,255,255,0));
+    position: absolute;
+    right: 0;
+    content: "";
+    display: block;
+    height: 100%;
+    width: 10px;
+    top: 0;
+  }
+  .comlist:after{
+    background-image: linear-gradient(right,rgba(255,255,255,0),rgba(255,255,255,.8));
+    position: absolute;
+    left: 0;
+    content: "";
+    display: block;
+    height: 100%;
+    width: 10px;
+    top: 0;
+  }
+  .comlist{
+    position:relative;
+    border-top:1px solid rgb(0,0,0,.1);
+  }
+  .comlist-detail{
+    margin-top:10px;
+    white-space: nowrap;
+    padding-left:10px;
+    overflow-x: scroll;
+  }
+  .comlist-detail::-webkit-scrollbar{
+    display:none;
+  }
+  .comlist h3 span:after{
+    content: "";
+    display: inline-block;
+    margin-left:18px;
+    width:25px;
+    height:13px;
+    background:url("http://127.0.0.1:3000/img/nine/nine-comlist/nine_tab_right.svg") no-repeat;
+  }
+  .comlist h3 span:before{
+    content: "";
+    display: inline-block;
+    margin-right:15px;
+    width:25px;
+    height:13px;
+    background:url("http://127.0.0.1:3000/img/nine/nine-comlist/nine_tab_left.svg") no-repeat;
+  }
+  .comlist h3 span{
+    margin:auto;
+    font-size: 15px;
+    color: #FC436D;
+    padding: 0 10px;
+    font-weight:400;
+  }
   /* 顶部导航 */
   .nine-nav-item span{
     font-size:14px;
@@ -99,12 +231,16 @@
     text-align: center;
     display:inline-block;
   }
+  /* 横向滚动条消失 */
+  .nine-nav::-webkit-scrollbar{
+    display:none ;
+  }
   .nine-nav{
     width:100%;
     white-space: nowrap;
     overflow-x: scroll; 
     overflow-y: hidden;
-
+    position:relative;
   }
   /* 顶部tab */
   .nine-tab{
@@ -185,7 +321,7 @@
   }
   /*顶部  */
   .nine{
-    width:80%;
+    width:90%;
     margin:auto;
     float:left;
   }
@@ -198,7 +334,6 @@
     float:right;
   }
   .back{
-    width:10%;
     height: 28px;
     width: 28px;
     display: block;

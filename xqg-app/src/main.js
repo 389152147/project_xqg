@@ -3,14 +3,23 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import bottomNavBg from '../src/components/sub/bottomNavBg.vue'
+
+Vue.component('bottomNavBg', bottomNavBg)
+
 
 Vue.config.productionTip = false
+//引入element-ui
+// import ElementUI from 'element-ui';
+// import 'element-ui/lib/theme-chalk/index.css'
+// Vue.use(ElementUI);
 
 // 导入 MUI 的样式表， 和 Bootstrap 用法没有差别
 // 导入 MUI 的样式表，扩展图标样式，购物车图标
 // 还需要加载图标字体文件
 import './lib/mui/css/mui.css'
 import './lib/mui/css/icons-extra.css'
+
 
 //mint-ui css文件
 import'mint-ui/lib/style.css'
@@ -29,11 +38,13 @@ axios.defaults.withCredentials=true
 //6:注册组件
 Vue.prototype.axios = axios
 
+//引入子组件
+
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
 })

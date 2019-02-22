@@ -87,6 +87,7 @@
         </div>
       </div>
     </div>
+    <bottomNavBg></bottomNavBg> 
   </div>
 </template>
 
@@ -321,17 +322,18 @@
   }
   /*顶部  */
   .nine{
-    width:90%;
+    width:100%;
     margin:auto;
     float:left;
   }
   .menu{
-    width:10%;
     background: url("../../img/Nine/header/cms-img.png") -243px 0 no-repeat;
     background-size: 287px 800px;
     width: 28px;
     height: 28px;
-    float:right;
+    position: absolute;
+    right:10px;
+    top:9px;
   }
   .back{
     height: 28px;
@@ -339,9 +341,11 @@
     display: block;
     background: url("../../img/Nine/header/cms-img.png") -32px 0 no-repeat;
     background-size: 287px 800px;
-    float: left;
+    position:absolute;
+    top:9px;
+    left:10px;
   }
-  header{
+  .Nine header{
     width: 100%;
     height: 45px;
     padding: 8px 10px;
@@ -353,7 +357,7 @@
     border-bottom-color: transparent;
     z-index:99;
   }
-  .header-bg{
+  .Nine .header-bg{
     width: 100%;
     height: 45px;
   }

@@ -127,6 +127,7 @@
         </div>
       </div>
     </div>
+    <bottomNavBg></bottomNavBg> 
   </div>
 </template>
 
@@ -435,7 +436,7 @@
     color:#000;
   }
   /*  */
-  header{
+  .Home header{
     width: 100%;
     height: 45px;
     position: fixed;
@@ -446,11 +447,11 @@
     border-bottom-color: transparent;
     z-index:99;
   }
-  .header-bg{
+  .Home .header-bg{
     width: 100%;
     height: 45px;
   }
-  .search{
+  .Home .search{
     display:inline-block;
     width: 80%;
     height:28px;

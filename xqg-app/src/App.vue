@@ -5,11 +5,15 @@
     <!-- 底部导航栏--tabbar -->
     <nav class="mui-bar mui-bar-tab">
 			<router-link class="mui-tab-item " :to="item.to"  v-for="item in tabbarList" :key="item.id">
-				<span class="mui-icon"><img :src="'http://127.0.0.1:3000/img/tabbar/'+item.img_src"></span>
+        <div class="mui-mask" @click="get(item.id)"></div>
+        <span class="mui-icon">  <!-- mui框架屏蔽了onclick和href事件。-->
+          <img :src="'http://127.0.0.1:3000/img/tabbar/'+item.img_src+'.png'">
+          <img :src="'http://127.0.0.1:3000/img/tabbar/'+item.img_src+'-active.png'" v-show="imgActive==item.id">
+        </span>
 				<span class="mui-tab-label">{{item.title}}</span>
 			</router-link>
 		</nav>
-    <div class="bottomNav-bg"></div>
+ 
   </div>
 </template>
 
@@ -18,22 +22,45 @@ export default {
   name: 'App',
   data(){
     return {
+      imgActive:1,
       tabbarList:[
-        {id:1,to:'/Home',img_src:'home-active.png',title:'首页'},
-        {id:2,to:'/Nine',img_src:'nine.png',title:'9.9包邮'},
-        {id:3,to:'/Classify',img_src:'classify.png',title:'分类'},
-        {id:4,to:'/Collection',img_src:'collection.png',title:'收藏'},
-        {id:5,to:'/Mine',img_src:'mine.png',title:'我的'}
+        {id:1,to:'/Home',img_src:'home',title:'首页'},
+        {id:2,to:'/Nine',img_src:'nine',title:'9.9包邮'},
+        {id:3,to:'/Classify',img_src:'classify',title:'分类'},
+        {id:4,to:'/Collection',img_src:'collection',title:'收藏'},
+        {id:5,to:'/Mine',img_src:'mine',title:'我的'}
       ],
     }
   },
   methods:{
-   
-  }
+    get(num){
+      this.imgActive=num
+      //console.log(this.imgActive)
+    }
+  },
 }
 </script>
 
 <style>
+.mui-tab-item{
+  position:relative;
+}
+.mui-mask{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:99
+}
+.mui-icon{
+  position:relative;
+}
+.mui-icon img{
+  position: absolute;
+  left:0;
+  top:0;
+}
 .main{
   max-width: 750px;
   margin:auto;

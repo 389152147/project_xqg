@@ -14,7 +14,7 @@
       </div>
       <div class="setting"></div>
     </div>
-    <!-- body -->
+    <!-- mine-body -->
     <div class="mine-body">
       <div class="user-list">
         <div class="clear-float ">

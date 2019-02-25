@@ -92,6 +92,18 @@
     methods: {
 
     },
+    beforeUpdate() {
+      console.log("beforeupdate")
+    },
+    updated(){
+      console.log("updated")
+    },
+    beforeDestroy() {
+      console.log("beforedestroy")
+    },
+    destroyed() {
+      console.log("destroy")
+    }
   }
   
 </script>

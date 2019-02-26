@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- 路由 -->
+    <!-- 路由1 -->
     <router-view></router-view>
     <!-- 底部导航栏--tabbar -->
     <nav class="mui-bar mui-bar-tab">

@@ -34,7 +34,7 @@
       //生命周期第三个函数:模板已经在内存中编辑完成
       //但未把模板渲染页面
       //var h3= document.getElementById("h3");
-      //h3.innerHTML=this.msg//报错
+      //h3.innerHTML=this.msg//报
     },
     mounted() {
       //生命周期第四个函数:模板已经在内存中编辑完成
